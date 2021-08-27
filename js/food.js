@@ -19,7 +19,6 @@ const searchFood = () => {
         //Hiding one error message
         noFoods.classList.add('d-none');
         incorrectSearch.classList.remove('d-none');
-
     }
     else {
         //Generating the api url dynamically according to user search
@@ -54,11 +53,12 @@ const displayFoods = foods => {
         noFoods.classList.remove('d-none');
     }
     else {
+        //Moving Search Bar at Top
         const header = document.querySelector('header');
         header.classList.remove('search-center');
-        header.classList.add('mt-5');
+        header.style.marginTop = '120px';
         //Hiding error message
-        noFoods.style.display = 'none';
+        noFoods.classList.add('d-none');
         foods.forEach(food => {
             // console.log(food);
             const div = document.createElement('div');
