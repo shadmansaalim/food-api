@@ -2,6 +2,9 @@
 const incorrectSearch = document.getElementById('incorrect-search');
 const noFoods = document.getElementById('no-foods');
 
+document.getElementById('food-search').addEventListener('keyup', function () {
+
+})
 
 //Search Function to get the food user wants fetching from API
 const searchFood = () => {
