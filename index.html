@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal API</title>
+    <!-- FontAwesome Link -->
+    <script src="https://kit.fontawesome.com/3f16fb12e4.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+
+    <!-- Top Section For User To Search -->
+    <header>
+        <section>
+            <h1 class="text-center text-light mt-5"><i>Search Your Favourite <span
+                        style="color: rgb(64, 124, 202);">Food</i>
+                </span>
+            </h1>
+            <div class="input-group mb-3 w-50 mx-auto mt-4">
+                <input id="food-search" type="text" class="form-control" placeholder="Search the food you want"
+                    aria-label="Search the food you want" aria-describedby="button-addon2">
+                <button onclick="searchFood()" class="btn btn-outline-secondary" type="button" id="button-search"><i
+                        class="fs-3 fas fa-search"></i></button>
+            </div>
+
+        </section>
+    </header>
+
+
+    <!-- Main Section For Search Results To Display -->
+    <main>
+        <section class="container mt-5">
+            <!-- Search result if the food is not available -->
+            <div id="no-foods" style="display: none;">
+                <h5 class="text-center text-warning">That's not on the menu yet. Try searching something
+                    else</h5>
+            </div>
+
+            <div id="incorrect-search" style="display: none;">
+                <h5 class="text-center text-warning">Please type something and then search</h5>
+            </div>
+
+            <!-- Search Result Food Container -->
+            <div id="food-container" class="row row-cols-1 row-cols-md-3 g-4">
+            </div>
+
+            <!-- Read More about selected food  -->
+            <div id="read-more">
+            </div>
+        </section>
+    </main>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="js/food.js"></script>
+</body>
+
+</html>
