@@ -11,33 +11,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <style>
-        html,
-        body {
-            margin: 0px;
-            padding: 0px;
-            overflow-x: hidden;
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            background-image: url(https://p.w3layouts.com/demos/21-03-2016/cookery/web/images/2.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="position: relative;">
 
     <!-- Top Section For User To Search -->
-    <header class="row">
+    <header class="search-center row">
         <section class="col-10 col-md-6 mx-auto">
-            <div class="input-group mb-3 mx-auto mt-5">
+            <div class="input-group mb-3 mx-auto">
                 <input id="food-search" type="text" class="form-control" placeholder="Search the food you want"
                     aria-label="Search the food you want" aria-describedby="button-addon2">
                 <button onclick="searchFood()" class="btn btn-outline-secondary" type="button" id="button-search"
@@ -51,19 +33,22 @@
 
     <!-- Main Section For Search Results To Display -->
     <main>
-        <section class="container mt-5">
+        <section class="container mt-5 mx-auto">
             <!-- Search result if the food is not available -->
-            <div id="no-foods" style="display: none;">
-                <h5 class="text-center text-warning">That's not on the menu yet. Try searching something
-                    else</h5>
+            <div id="no-foods" class="message d-none alert alert-danger" role="alert">
+                <i class="fas fa-ban"></i> That's not on the menu yet. Try searching something
+                else.
             </div>
 
-            <div id="incorrect-search" style="display: none;">
-                <h5 class="text-center text-warning">Please type something and then search</h5>
+
+            <!-- Search result if the search is incorrect -->
+            <div id="incorrect-search" class="message d-none alert alert-danger" role="alert">
+                <i class="fas fa-ban"></i> Please type something and then search
             </div>
+
 
             <!-- Search Result Food Container -->
-            <div id="food-container" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="food-container" class="row g-4">
             </div>
 
             <!-- Read More about selected food  -->

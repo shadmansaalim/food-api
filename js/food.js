@@ -17,8 +17,9 @@ const searchFood = () => {
 
     if (userFood == null || userFood == '') {
         //Hiding one error message
-        noFoods.style.display = 'none';
-        incorrectSearch.style.display = 'block';
+        noFoods.classList.add('d-none');
+        incorrectSearch.classList.remove('d-none');
+
     }
     else {
         //Generating the api url dynamically according to user search
@@ -44,21 +45,24 @@ const readMoreContainer = document.getElementById('read-more');
 // Function to display the foods that user searched for
 const displayFoods = foods => {
     //Hiding error message
-    incorrectSearch.style.display = 'none';
+    incorrectSearch.classList.add('d-none');
     //Clearing the read more container
     readMoreContainer.textContent = '';
     //Clearing the previous search result
     foodContainer.textContent = '';
     if (foods == null || foods.length == 0) {
-        noFoods.style.display = 'block';
+        noFoods.classList.remove('d-none');
     }
     else {
+        const header = document.querySelector('header');
+        header.classList.remove('search-center');
+        header.classList.add('mt-5');
         //Hiding error message
         noFoods.style.display = 'none';
         foods.forEach(food => {
             // console.log(food);
             const div = document.createElement('div');
-            div.classList.add('col');
+            div.classList.add('col-11', 'col-md-6', 'col-lg-4', 'mx-auto', 'mx-md-0');
             div.innerHTML = `
             <div class="card h-100">
                             <img src=${food.strMealThumb} class="card-img-top" alt="...">
@@ -76,6 +80,7 @@ const displayFoods = foods => {
     }
 }
 
+//Read More Function
 const readMore = foodId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
     fetch(url)
@@ -92,7 +97,7 @@ const displayReadMore = food => {
     const div = document.createElement('div');
     div.classList.add('col');
     div.innerHTML = `
-        <div class="card h-100 w-50 mx-auto">
+        <div class="card w-100 mx-auto">
                         <img src=${food.strMealThumb} class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${food.strMeal}</h5>
