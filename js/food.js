@@ -63,7 +63,7 @@ const displayFoods = foods => {
         foods.forEach(food => {
             // console.log(food);
             const div = document.createElement('div');
-            div.classList.add('col-11', 'col-md-6', 'col-lg-4', 'col-xl-3', 'mx-auto', 'mx-md-0');
+            div.classList.add('col-11', 'col-md-6', 'col-xl-3', 'col-lg-4', 'mx-auto', 'mx-md-0');
             div.innerHTML = `
             <div class="card h-100">
                             <img src=${food.strMealThumb} class="card-img-top" alt="...">
