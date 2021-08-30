@@ -43,6 +43,7 @@ const readMoreContainer = document.getElementById('read-more');
 
 // Function to display the foods that user searched for
 const displayFoods = foods => {
+    console.log(foods);
     //Hiding error message
     incorrectSearch.classList.add('d-none');
     //Clearing the read more container
@@ -62,7 +63,7 @@ const displayFoods = foods => {
         foods.forEach(food => {
             // console.log(food);
             const div = document.createElement('div');
-            div.classList.add('col-11', 'col-md-6', 'col-lg-4', 'mx-auto', 'mx-md-0');
+            div.classList.add('col-11', 'col-md-6', 'col-lg-4', 'col-xl-3', 'mx-auto', 'mx-md-0');
             div.innerHTML = `
             <div class="card h-100">
                             <img src=${food.strMealThumb} class="card-img-top" alt="...">
