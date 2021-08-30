@@ -2,9 +2,6 @@
 const incorrectSearch = document.getElementById('incorrect-search');
 const noFoods = document.getElementById('no-foods');
 
-document.getElementById('food-search').addEventListener('keyup', function () {
-
-})
 
 //Search Function to get the food user wants fetching from API
 const searchFood = () => {
@@ -43,7 +40,6 @@ const readMoreContainer = document.getElementById('read-more');
 
 // Function to display the foods that user searched for
 const displayFoods = foods => {
-    console.log(foods);
     //Hiding error message
     incorrectSearch.classList.add('d-none');
     //Clearing the read more container
@@ -92,7 +88,6 @@ const readMore = foodId => {
 }
 
 const displayReadMore = food => {
-    console.log(food);
     //Clearing the other food results
     foodContainer.textContent = '';
     const div = document.createElement('div');
