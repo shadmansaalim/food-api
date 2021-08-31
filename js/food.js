@@ -31,13 +31,6 @@ const searchFood = () => {
 
 const foodContainer = document.getElementById('food-container');
 
-//Read More container to store foods that user wants to read more only
-
-const readMoreContainer = document.getElementById('read-more');
-
-
-
-
 // Function to display the foods that user searched for
 const displayFoods = foods => {
     //Hiding error message
