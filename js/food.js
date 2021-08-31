@@ -43,7 +43,7 @@ const displayFoods = foods => {
     //Hiding error message
     incorrectSearch.classList.add('d-none');
     //Clearing the read more container
-    readMoreContainer.textContent = '';
+    // readMoreContainer.textContent = '';
     //Clearing the previous search result
     foodContainer.textContent = '';
     if (foods == null || foods.length == 0) {
@@ -51,9 +51,9 @@ const displayFoods = foods => {
     }
     else {
         //Moving Search Bar at Top
-        const header = document.querySelector('header');
-        header.classList.remove('search-center');
-        header.style.marginTop = '120px';
+        const searchBox = document.getElementById('search-box')
+        searchBox.classList.remove('search-center');
+        searchBox.style.marginTop = '120px';
         //Hiding error message
         noFoods.classList.add('d-none');
         foods.forEach(food => {
@@ -68,7 +68,7 @@ const displayFoods = foods => {
                                 <p class="card-text">${food.strInstructions.slice(0, 250)}...</p>
                             </div>
                             <div class="card-footer">
-                                <button onclick="readMore('${food.idMeal}')" class="btn btn-secondary">Read More</button>
+                                <button data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="readMore('${food.idMeal}')" class="btn btn-secondary">Read More</button>
                             </div>
             </div>
             `
@@ -88,21 +88,16 @@ const readMore = foodId => {
 }
 
 const displayReadMore = food => {
-    //Clearing the other food results
-    foodContainer.textContent = '';
-    const div = document.createElement('div');
-    div.classList.add('col');
-    div.innerHTML = `
-        <div class="card w-100 mx-auto">
-                        <img src=${food.strMealThumb} class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">${food.strMeal}</h5>
-                            <p class="card-text">${food.strInstructions}</p>
-                        </div>
-                        <div class="card-footer">
-                        <a href="${food.strYoutube}" target=_blank class="btn btn-primary">Check Recipe Video</a>
-                        </div>
-        </div>
-        `
-    readMoreContainer.appendChild(div);
+    console.log(food);
+    const modalTitle = document.getElementById('exampleModalLabel');
+    const modalBody = document.getElementById('modal-body');
+    const modalFooter = document.getElementById('modal-footer');
+
+    modalTitle.innerText = food.strMeal;
+    modalBody.innerHTML = `<img width="250px" src = ${food.strMealThumb} alt>
+    <p>${food.strInstructions}</p>
+    `;
+    modalFooter.innerHTML = `
+    <a href="${food.strYoutube}" target="_blank" class="btn btn-primary">Recipe Video</a>
+    `;
 }
